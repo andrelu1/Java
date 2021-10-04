@@ -1,0 +1,98 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import = "java.util.*" session="true"%> 
+<%@page import="java.util.ArrayList"%>
+<%@ page pageEncoding="UTF-8" %>
+
+<%   
+    if(request.getParameter("logar")!=null){
+        String userName = request.getParameter("nome");
+        session.setAttribute("nome", userName);      
+        int mega=0;
+            ArrayList<Integer> megaa = new ArrayList<>();
+            for(int i=1;i<=6;i++){
+            megaa.add((int)(60*Math.random())); 
+            }
+            session.setAttribute("mega", megaa);
+             if(application.getAttribute("counter")==null){
+             application.setAttribute("counter", 1);
+             } else {
+                 int contador = 1;
+                 application.getAttribute("counter");
+                 contador++;
+                 application.setAttribute("counter", contador);
+             }
+        response.sendRedirect(request.getRequestURI());
+    }else if(request.getParameter("deslogar")!=null){
+        session.removeAttribute("nome");
+        if(application.getAttribute("counter")==null){
+             application.setAttribute("counter", 1);
+             } else {
+                 int contador = 0;
+                 application.getAttribute("counter");
+                 contador--;
+                 application.setAttribute("counter", contador);
+             }
+        response.sendRedirect(request.getRequestURI());
+    }
+ String attuser = (String) session.getAttribute("nome");
+%>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="#">André Luis - P1</a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.jsp">Index</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="andre-dica-mega.jsp">Mega</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="andre.jsp">Andre</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+   <form class="d-flex input-group w-auto">
+    <%if(attuser==null ){%>
+       <input
+        type="search"
+        class="form-control rounded"
+        placeholder="Login"
+        name="nome"
+        aria-label="Search"
+        aria-describedby="search-addon"
+      />
+      <button type="submit" name="logar" class="btn btn-dark btn-rounded">Login</button>
+      <%}else {%>
+      Bem Vindo!: <%= attuser %>
+     <button type="submit" name="deslogar" class="btn btn-dark btn-rounded">Deslogar</button>
+      <hr/> 
+   <%}%>
+   </form>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
