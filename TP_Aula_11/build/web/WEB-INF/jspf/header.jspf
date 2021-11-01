@@ -1,0 +1,46 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="model.Horario"%>
+<%
+    Horario agora = new Horario();
+    agora.setHoras(21);
+    agora.setMinutos(12);
+    agora.setSegundos(33);
+
+    Horario intervalo = new Horario(14, 40, 0);
+%>
+<%@ page pageEncoding="UTF-8" %>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top" style="background-color: #4682B4;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">André Luis</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="data.jsp">Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="contatos.jsp">Contatos</a>
+        </li>
+      </ul>
+      <span class="navbar-text active">
+        <h5>Horario de agora:</h5>
+        <div><%= agora.getHorario() %></div>
+        <h5>Intervalo:</h5>
+        <div><%= intervalo.getHorario() %></div>
+      </span>
+    </div>
+  </div>
+</nav>
