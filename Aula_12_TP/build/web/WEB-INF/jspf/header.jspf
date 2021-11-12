@@ -1,0 +1,34 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-fixed-top" style="background-color: #243b55;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">JDBC - André Luis</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="data.jsp">Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="contatos.jsp">Contatos</a>
+        </li>
+      </ul>
+      <span class="navbar-text active">
+        <div><%= new java.util.Date() %></div>
+      </span>
+    </div>
+  </div>
+</nav>
