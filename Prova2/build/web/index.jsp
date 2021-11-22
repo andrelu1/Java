@@ -28,8 +28,8 @@
             String taskID = request.getParameter("taskID");
             String taskTitle = request.getParameter("taskTitle"); 
             Tasks.removeTask(taskName);
-            Tasks.addTask(taskID);
-            Tasks.addTask(taskTitle);
+            Tasks.removeTask(taskID);
+            Tasks.removeTask(taskTitle);
             response.sendRedirect(request.getRequestURI());
         }
         taskList = Tasks.getTasks();
